@@ -34,3 +34,9 @@ jobs:
       - name: Run Flake8
         run: |
           flake8 .
+
+      # Executa o safety
+      - name: Run Safety Check
+        run: |
+          safety check -r requirements-dev.txt
+      
