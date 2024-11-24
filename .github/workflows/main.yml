@@ -38,6 +38,8 @@ jobs:
       # Executa o safety
       - uses: actions/checkout@main
       - name: Run Safety CLI to check for vulnerabilities
-        uses: pyupio/safety-action@v1
+        uses:
+          pip install -q safety
+          pyupio/safety-action@v1
         with:
           api-key: ${{ secrets.SAFETY_API_KEY }}
