@@ -36,7 +36,8 @@ jobs:
           flake8 .
 
       # Executa o safety
-      - name: Install and run Safety
-        run: |
-          python -q -m pip install safety
-          safety scan --ci --key ${{ secrets.SAFETY_API_KEY }}
+      - uses: actions/checkout@main
+      - name: Run Safety CLI to check for vulnerabilities
+        uses: pyupio/safety-action@v1
+        with:
+          api-key: ${{ secrets.SAFETY_API_KEY }}
