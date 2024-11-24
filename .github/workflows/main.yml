@@ -38,4 +38,4 @@ jobs:
       # Executa o safety
       - name: Run Safety Check
         run: |
-          safety check -r requirements-dev.txt
+          safety check --key ${{ secrets.SAFETY_API_KEY }}
