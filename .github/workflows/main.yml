@@ -39,4 +39,4 @@ jobs:
       - name: Install and run Safety
         run: |
           python -q -m pip install safety
-          safety scan --key ${{ secrets.SAFETY_API_KEY }}
+          safety scan --ci --key ${{ secrets.SAFETY_API_KEY }}
