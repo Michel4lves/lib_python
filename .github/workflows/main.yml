@@ -39,4 +39,3 @@ jobs:
       - name: Run Safety Check
         run: |
           safety check -r requirements-dev.txt
-      
