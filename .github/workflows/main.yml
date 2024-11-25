@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -q -m pip install --upgrade pip
-          pip install -q -r requirements-dev.txt
+          pip install -q -r requirements.txt
 
 
       # Executa o Flake8
