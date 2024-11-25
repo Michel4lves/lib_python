@@ -42,4 +42,3 @@ jobs:
         with:
           api-key: ${{ secrets.SAFETY_API_KEY }}
           args: --detailed-output --input=requirements.txt
-
