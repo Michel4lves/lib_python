@@ -9,7 +9,7 @@ on:
       - main  # Verifica o código em PRs para a branch "main"
 
 jobs:
-  flake8-lint:
+  flake8-security-lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,12 +23,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      # Instala o Flake8
+      # Instala as dependências
       - name: Install dependencies
         run: |
           python -q -m pip install --upgrade pip
           pip install -q -r requirements-dev.txt
-
 
       # Executa o Flake8
       - name: Run Flake8
@@ -36,3 +35,9 @@ jobs:
           flake8 .
 
       # Executa o safety
+      - uses: actions/checkout@main
+      - name: Run Safety CLI to check for vulnerabilities
+        uses: pyupio/safety-action@v1
+        with:
+          api-key: ${{ secrets.SAFETY_API_KEY }}
+          args: --detailed-output # To always see detailed output from this action
