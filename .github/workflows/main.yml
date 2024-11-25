@@ -41,4 +41,5 @@ jobs:
         uses: pyupio/safety-action@v1
         with:
           api-key: ${{ secrets.SAFETY_API_KEY }}
-          args: --detailed-output # To always see detailed output from this action
+          args: --detailed-output --input=requirements.txt
+
